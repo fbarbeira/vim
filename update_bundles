@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+git_bundles = %w{
+	git://github.com/puppetlabs/puppet-syntax-vim.git
+	git://github.com/msanders/snipmate.vim.git
+	git://github.com/scrooloose/syntastic
+	git://github.com/vim-ruby/vim-ruby.git
+}
+
+require 'fileutils'
+require 'open-uri'
+
+bundles_dir = File.join(File.dirname(__FILE__), "bundle")
+
+FileUtils.rm_rf(bundles_dir)
+FileUtils.mkdir(bundles_dir)
+FileUtils.cd(bundles_dir)
+
+git_bundles.each do |url|
+  puts url
+  `git clone -q #{url}`
+end
+
+Dir["*/.git"].each {|f| FileUtils.rm_rf(f) }
