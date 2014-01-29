@@ -17,7 +17,7 @@ filetype plugin indent on
 
 " Variables for template interpolation.
 let email_address = "---"
-let fullname = "---"
+let fullname = "Felix Barbeira"
 let company_name = "---"
 let template_date_format_string = "%a %b %d %Y"
 
@@ -47,25 +47,24 @@ set showmode
 " Enable line numbers and colorize them.
 set number
 set numberwidth=5
-"hi LineNr cterm=none ctermfg=darkgrey ctermbg=black
+hi LineNr cterm=none ctermfg=darkgrey ctermbg=black
 
 " SignColumn.
-hi SignColumn ctermbg=232
+hi SignColumn ctermbg=none
 
 " Syntastic options.
 "
 " Jump to the first error line when check.
-let g:syntastic_auto_jump=1
-
-" Define error symbols.
+let g:syntastic_auto_jump = 1
 "let g:syntastic_error_symbol='⛔ '
-"let g:syntastic_style_error_symbol='🐷 '
-"let g:syntastic_warning_symbol='👎 '
-"let g:syntastic_style_warning_symbol='🐽 '
+"let g:syntastic_error_symbol = '✗'
+"let g:syntastic_warning_symbol = '⚠'
+"let g:syntastic_style_error_symbol='💀 '
+"let g:syntastic_warning_symbol='🐞 '
+"let g:syntastic_style_warning_symbol='🐷 '
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 "let g:syntastic_auto_loc_list=1
 "let g:syntastic_loc_list_height=5
-let g:syntastic_enable_highlighting = 1
 
 " Statusline explained.
 "
@@ -75,29 +74,28 @@ let g:syntastic_enable_highlighting = 1
 "set statusline+=%h      "help file flag
 "set statusline+=%m      "modified flag
 "set statusline+=%r      "read only flag
-"set statusline+=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \
-"
 "set statusline+=%#todo#
 "set statusline+=%{fugitive#statusline()} "show git branch
 "set statusline+=%*
-"
 "set statusline+=%=      "left/right separator
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
-"
 "set statusline+=%c,     "cursor column
 "set statusline+=%l/%L   "cursor line/total lines
 "set statusline+=\ %P    "percent through file
 
 "Same as above, but everything in one line.
 set laststatus=2
-set statusline=
-set statusline=[%{&ff}]%y%f%h%m\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %#question#%{fugitive#statusline()}%*\ \ \ \ \ \ \ \ \ \ %#errormsg#%{SyntasticStatuslineFlag()}%*%=%c,%l/%L\ \ %P
+set statusline=[%{&ff}]%y%f%h%m\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ %{fugitive#statusline()}\ \ \ \ \ \ \ \ \ \ %#errormsg#%{SyntasticStatuslineFlag()}%*%=%c,%l/%L\ \ %P
 
 " change highlighting based on mode
-if version >= 700
-hi statusLine cterm=bold ctermfg=black ctermbg=black
-  "au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=blue
-  "au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
-endif
+"if version >= 700
+"hi statusLine cterm=none ctermfg=white ctermbg=8
+"  au InsertLeave * highlight StatusLine cterm=none ctermfg=grey ctermbg=black
+"  au InsertEnter * highlight StatusLine cterm=bold ctermfg=white ctermbg=black
+"endif
+highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
+match LiteralTabs /\s\	/
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$/
