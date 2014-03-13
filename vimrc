@@ -24,6 +24,10 @@ let template_date_format_string = "%a %b %d %Y"
 " Highlight search and move cursor as you type search terms.
 "set hlsearch incsearch
 
+" Esquema de colores segundo el background.
+set background=dark
+" set background=light
+
 " When editing a file, always jump to the last cursor position.
 autocmd BufReadPost *
 \ if line("'\"") > 0 && line ("'\"") <= line("$") |
