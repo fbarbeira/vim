@@ -24,6 +24,10 @@ let template_date_format_string = "%a %b %d %Y"
 " Highlight search and move cursor as you type search terms.
 "set hlsearch incsearch
 
+" set default comment color to cyan instead of darkblue
+" which is not very legible on a black background
+highlight comment ctermfg=cyan
+
 " Esquema de colores segundo el background.
 set background=dark
 " set background=light
