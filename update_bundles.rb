@@ -6,6 +6,7 @@ git_bundles = %w{
 	git://github.com/rodjek/vim-puppet.git
 	git://github.com/godlygeek/tabular.git
 	git://github.com/tmatilai/gitolite.vim.git
+	git://github.com/vim-scripts/logstash.vim
 }
 
 require 'fileutils'
